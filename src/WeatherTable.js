@@ -67,7 +67,7 @@ function WeatherTable(props) {
               ? <span style={{width: "20%"}}>City not selected</span>
               : props.city_weather.forecast_weather.map( (item, i) =>
                 <span key={item.dt_txt} className="sub-weather" style={{width: "20%"}}><div className="sub-time">{item.dt_txt.slice(10,16)}</div>
-                  <img alt="Weather icon" src={`http://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png`}/> <br />
+                  <img alt="Weather icon" width="55" height="55" src={`http://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png`}/> <br />
                     <div className="sub-temp">{Math.round(item.main.temp)} °C</div>
                     <div className="wind-hum-pre">
                       {item.wind.speed} m/s<br />
