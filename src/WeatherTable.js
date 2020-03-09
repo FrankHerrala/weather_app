@@ -11,6 +11,7 @@ function WeatherTable(props) {
   let day = d.getDate().toString()
   let hour = d.getHours().toString()
   let minute = d.getMinutes().toString()
+
   day.charAt(day.length-1) === "1"
     ? day = day + "st"
     : day.charAt(day.length-1) === "2"
@@ -25,6 +26,7 @@ function WeatherTable(props) {
     };
     return time;
   }
+
   return (
     <div>
           {props.city_weather === undefined
@@ -32,8 +34,12 @@ function WeatherTable(props) {
             : <div className="main-table">
               <div key={props.city_weather.name} className="main-table-first-row">
                 <span className="loc-desc" style={{width: "50%"}}>
-                  <div className="location">{props.city_weather.current_weather.name}</div>
-                  <div className="description">{props.city_weather.current_weather.weather[0].description}</div>
+                  <div className="location">
+                    {props.city_weather.current_weather.name}
+                  </div>
+                  <div className="description">
+                    {props.city_weather.current_weather.weather[0].description}
+                  </div>
                 </span>
                 <span className="icon" style={{width: "25%"}}>
                   <img alt="Weather icon" src={`http://openweathermap.org/img/wn/${props.city_weather.current_weather.weather[0].icon}@2x.png`}/>
@@ -44,19 +50,28 @@ function WeatherTable(props) {
               </div>
               <div key="extra" className="main-table-second-row">
                 <span className="date-time" style={{width: "50%"}}>
-                  <div className="date">{months[d.getMonth()]} {day}</div>
-                  <div className="time">{addZero(hour)}:{addZero(minute)}</div>
+                  <div className="date">
+                    {months[d.getMonth()]} {day}
+                  </div>
+                  <div className="time">
+                    {addZero(hour)}:{addZero(minute)}
+                  </div>
                 </span>
                 <span className="main-wind-hum-pre" style={{width: "50%"}}>
-                  <div>Wind: {props.city_weather.current_weather.wind.speed} m/s</div>
-                  <div>Humidity: {props.city_weather.current_weather.main.humidity} %</div>
+                  <div>
+                    Wind: {props.city_weather.current_weather.wind.speed} m/s
+                  </div>
+                  <div>
+                    Humidity: {props.city_weather.current_weather.main.humidity} %
+                  </div>
                   <div>Precipitation (3h): {
-                    props.city_weather.current_weather.rain === undefined
-                    ? props.city_weather.current_weather.snow === undefined
-                      ? "0 mm"
-                      : Math.round(props.city_weather.current_weather.snow["3h"]) + " mm"
-                    : Math.round(props.city_weather.current_weather.rain["3h"]) + " mm"
-                  } </div>
+                      props.city_weather.current_weather.rain === undefined
+                      ? props.city_weather.current_weather.snow === undefined
+                        ? "0 mm"
+                        : Math.round(props.city_weather.current_weather.snow["3h"]) + " mm"
+                      : Math.round(props.city_weather.current_weather.rain["3h"]) + " mm"
+                      }
+                  </div>
                 </span>
               </div>
               </div>
@@ -66,9 +81,14 @@ function WeatherTable(props) {
             {props.city_weather.forecast_weather === undefined
               ? <span style={{width: "20%"}}>City not selected</span>
               : props.city_weather.forecast_weather.map( (item, i) =>
-                <span key={item.dt_txt} className="sub-weather" style={{width: "20%"}}><div className="sub-time">{item.dt_txt.slice(10,16)}</div>
+                <span key={item.dt_txt} className="sub-weather" style={{width: "20%"}}>
+                  <div className="sub-time">
+                    {item.dt_txt.slice(10,16)}
+                  </div>
                   <img alt="Weather icon" width="55" height="55" src={`http://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png`}/> <br />
-                    <div className="sub-temp">{Math.round(item.main.temp)} °C</div>
+                    <div className="sub-temp">
+                      {Math.round(item.main.temp)} °C
+                    </div>
                     <div className="wind-hum-pre">
                       {item.wind.speed} m/s<br />
                       {item.main.humidity} %<br />

@@ -16,7 +16,8 @@ const city_info = [
   "code": [634964, 655195, 650225, 658225]},
 ]
 
-const apiKey = "eba011b1d8610b27589651077f0d671c"
+//Laita tähän oma api avaimesi
+const apiKey = ""
 
 function App() {
   const [weatherStatus, setWeatherStatus] = useState([]);
@@ -42,7 +43,9 @@ function App() {
     <div className="App">
       <header className="headline">Säätutka</header>
       <div className="dropdown-menu">
-        <button className="city-button" onClick={() => setDropdownDisplay(!dropdownDisplay)}>{citySelection} <img alt="Arrow" className="arrow" align="right" src={Arrow} /></button>
+        <button className="city-button" onClick={() => setDropdownDisplay(!dropdownDisplay)}>
+          {citySelection} <img alt="Arrow" className="arrow" align="right" src={Arrow} />
+        </button>
         { dropdownDisplay === false
           ? null
           : <div className="dropdown">
