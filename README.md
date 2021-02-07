@@ -1,5 +1,6 @@
 Alempana on komennot, joilla pystytään pyörittämään tätä sivua. Muista vaihtaa App.js tiedoston 20. rivin apiKey omaksi api avaimeksi. Avaimen saa rekisteröitymällä https://openweathermap.org/api sivulle.
 
+Löytyy myös osoitteesta https://pacific-earth-36596.herokuapp.com/
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
